@@ -1,0 +1,9 @@
+this.title is global variable, and title is a local variable  
+This is similar to this.title=flimtitle, but using this. prefix is not compulsary 
+This is similar to this.director=flimdirector, but using this. prefix is not compulsary
+as there are no local variables by name title, or director so, here they will implicitly referred to global variable
+note: if title and director are not global declare then it will be undeclared variable cannot to be resolved to a variable
+if the parameter names are similar to the global variables
+then there is an ambiguity between the local variable (parameters) and global variable
+hence this. prefix is used for referring the global variable
+title=title will be referring the local variable on both side of the = operator (x=x) self assigning
