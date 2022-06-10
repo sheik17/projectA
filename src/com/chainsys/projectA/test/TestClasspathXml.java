@@ -1,4 +1,4 @@
-package com.chainsys.projectA.getbeans;
+package com.chainsys.projectA.test;
 
 import org.springframework.context.ApplicationContext;//parent
 import org.springframework.context.support.ClassPathXmlApplicationContext;//child

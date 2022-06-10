@@ -1,4 +1,4 @@
-package com.chainsys.projectA.getbeans;
+package com.chainsys.projectA.test;
 import com.chainsys.projectA.appconfig.AppConfig;
 import org.springframework.context.ApplicationContext;//parent
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;//child
