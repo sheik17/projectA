@@ -184,8 +184,8 @@ public class EmployeeDao {
 			ps = con.prepareStatement(selectquery);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
-			emp = new Employee();
 			while (rs.next()) {
+				emp = new Employee();
 				emp.setEmp_id(rs.getInt(1));
 				emp.setFirst_name(rs.getString(2));
 				emp.setLast_name(rs.getString(3));

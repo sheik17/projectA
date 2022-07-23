@@ -12,4 +12,5 @@
   <bean id="log" class="com.chainsys.springproject.commonutil.LogManager"></bean>
   <bean id="empspring" class="com.chainsys.springproject.view.EmployeeSprings" destroy-method="close"></bean>
   <bean id="val" class="com.chainsys.springproject.commonutil.Validator"></bean>
+     <bean id="scc" class="com.chainsys.springproject.dao.ScannerFactory"></bean>
   </beans>

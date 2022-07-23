@@ -25,7 +25,6 @@ public class EmployeeSprings {
 	public void setSc(Scanner sc) {
 		this.sc = sc;
 	}
-
 	public ConfigurableApplicationContext getApcontext() {
 		return apcontext;
 	}
@@ -48,20 +47,25 @@ public class EmployeeSprings {
 			message += "\n Error in Employee id input ";
 			apcontext.getBean(ExceptionManager.class).handleException(e, source, message);
 			System.out.println(message);
-			close();
 			return;
 		}
 //		Employee emp=EmployeeDao.getEmployeeById(emp_id);
 		
 		EmployeeDao empdao=apcontext.getBean(EmployeeDao.class);
 		Employee emp=empdao.getEmployeeById(emp_id);
+		if(emp!=null)
+		{
 		System.out.println("Employee id:"+emp.getEmp_id());
 		System.out.println("Employee First Name:"+emp.getFirst_name());
 		System.out.println("Employee last Name :"+emp.getLast_name());
 		System.out.println("Employee hired date:"+emp.getHire_date());
 		System.out.println("Employee job_id:"+emp.getJob_id());
 		System.out.println("Employee Salary:"+emp.getSalary());
-		close();
+		}
+		else
+		{
+			System.out.println("EmpId not found "+emp_id);
+		}
 	}
 
 	public void addNewEmployee() {
@@ -81,8 +85,6 @@ public class EmployeeSprings {
 					message += "\n Error in Employee id input ";
 					exM.handleException(e, source, message);
 					System.out.println(message);
-					close();
-					 ;
 					return; // It terminates the Code execution beyond this point
 				}
 				int id1 = Integer.parseInt(id);
@@ -92,7 +94,6 @@ public class EmployeeSprings {
 					message += "\n Error in Employee id input ";
 					exM.handleException(e, source, message);
 					System.out.print(message);
-					close();
 					return;
 				}
 				emp.setEmp_id(id1);
@@ -104,7 +105,6 @@ public class EmployeeSprings {
 					message += "\n Error in First Name input ";
 					exM.handleException(e, source, message);
 					System.out.print(message);
-					close();
 					return;
 				}
 				emp.setFirst_name(emp_Firstname);
@@ -116,7 +116,6 @@ public class EmployeeSprings {
 					message += "\n Error in Last Name input ";
 					exM.handleException(e, source, message);
 					System.out.print(message);
-					close();
 					return;
 				}
 				emp.setLast_name(emp_LastName);
@@ -128,7 +127,6 @@ public class EmployeeSprings {
 					message += "\\n Error in email input ";
 					exM.handleException(e, source, message);
 					System.out.print(message);
-					close();
 					return;
 				}
 				emp.setEmail(emp_email);
@@ -143,7 +141,6 @@ public class EmployeeSprings {
 					message += "\n Error in Hire Date input ";
 					exM.handleException(e, source, message);
 					System.out.print(message);
-					close();
 					return;
 				}
 				try {
@@ -152,7 +149,6 @@ public class EmployeeSprings {
 					message += "\n Error in Hire Date input ";
 					exM.handleException(e, source, message);
 					System.out.print(message);
-					close();
 					return;
 				}
 				System.out.println("Enter Job Id: ");
@@ -163,7 +159,6 @@ public class EmployeeSprings {
 					message += "\n Error in Job Id input ";
 					exM.handleException(e, source, message);
 					System.out.print(message);
-					close();
 					return;
 				}
 				emp.setJob_id(emp_Job_id);
@@ -176,7 +171,6 @@ public class EmployeeSprings {
 					message += "\n Error in Salary input ";
 					exM.handleException(e, source, message);
 					System.out.print(message);
-					close();
 					return;
 				}
 				float salary = Float.parseFloat(emp_salary);
@@ -191,7 +185,6 @@ public class EmployeeSprings {
 				e.printStackTrace();
 				return;
 			}
-			close();
 			
 		} 
 
@@ -212,7 +205,6 @@ public class EmployeeSprings {
 				message += "\n Error in Employee id input ";
 				exM.handleException(e, source, message);
 				System.out.print(message);
-				close();
 				return;
 
 			}
@@ -223,7 +215,6 @@ public class EmployeeSprings {
 				message += " Error in Employee id input </p>";
 				exM.handleException(e, source, message);
 				System.out.print(message);
-				close();
 				return;
 			}
 			emp.setEmp_id(id);
@@ -235,7 +226,6 @@ public class EmployeeSprings {
 				message += "\n Error in First Name input ";
 				exM.handleException(e, source, message);
 				System.out.print(message);
-				close();
 				return;
 			}
 			emp.setFirst_name(emp_Firstname);
@@ -247,7 +237,6 @@ public class EmployeeSprings {
 				message += "\n Error in Last Name input ";
 				exM.handleException(e, source, message);
 				System.out.print(message);
-				close();
 				return;
 			}
 			emp.setLast_name(emp_LastName);
@@ -259,7 +248,6 @@ public class EmployeeSprings {
 				message += "\n Error in email input ";
 				exM.handleException(e, source, message);
 				System.out.print(message);
-				close();
 				return;
 			}
 			emp.setEmail(emp_email);
@@ -274,7 +262,6 @@ public class EmployeeSprings {
 				message += "\n Error in Hire Date input ";
 				exM.handleException(e, source, message);
 				System.out.print(message);
-				close();
 				return;
 			}
 			try {
@@ -283,7 +270,6 @@ public class EmployeeSprings {
 				message += "\n Error in Hire Date input ";
 				exM.handleException(e, source, message);
 				System.out.print(message);
-				close();
 				return;
 			}
 			System.out.println("Enter Job Id: ");
@@ -294,7 +280,6 @@ public class EmployeeSprings {
 				message += "\n Error in Job Id input ";
 				exM.handleException(e, source, message);
 				System.out.print(message);
-				close();
 				return;
 
 			}
@@ -307,7 +292,6 @@ public class EmployeeSprings {
 				message += "\n Error in salary input ";
 				exM.handleException(e, source, message);
 				System.out.print(message);
-				close();
 				return;
 
 			}
@@ -323,7 +307,6 @@ public class EmployeeSprings {
 			e.printStackTrace();
 			return;
 		}
-		close();
 	}
 
 	public void DeleteEmployee(){
@@ -339,7 +322,6 @@ public class EmployeeSprings {
 			message += "\n Error in Employee id input ";
 			apcontext.getBean(ExceptionManager.class).handleException(e, source, message);
 			System.out.print(message);
-			close();
 			return;
 		}
 		int id = Integer.parseInt(emp_id);
@@ -347,7 +329,6 @@ public class EmployeeSprings {
 		int result = empdao.deleteEmployee(id);
 		System.out.println(result + "row deleted");
 		empdao=null;
-		close();
 	}
 	public void close() {
 		sc.close();
